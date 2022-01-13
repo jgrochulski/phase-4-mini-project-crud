@@ -25,14 +25,15 @@ class SpicesController < ApplicationController
     end
   end
 
-  def spice_params
-    params.permit(:title, :image, :description, :notes, :rating)
-  end
-
   def destroy
     spice = Spice.find_by(id: params[:id])
     spice.destroy
   end
 
+  private
+
+  def spice_params
+    params.permit(:title, :image, :description, :notes, :rating)
+  end
 
 end
